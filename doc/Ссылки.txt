@@ -1,0 +1,3 @@
+FASMX-ZX https://www.sinclairzxworld.com/viewtopic.php?f=6&t=1064
+EightyOne Sinclair Emulator https://sourceforge.net/projects/eightyone-sinclair-emulator/
+https://zx-pk.ru/threads/27899-dlya-spektruma-mozhno-pisat-na-fasm.html?__cf_chl_tk=V.8IXlPANT3TRoyWHowQMScxx1_L10z1kmFUZHXRh_0-1663610234-0-gaNycGzNCxE
