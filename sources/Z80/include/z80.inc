@@ -1,28 +1,22 @@
-A?    equ[:111b:]
-B?    equ[:000b:]
-C?    equ[:001b:]
-D?    equ[:010b:]
-E?    equ[:011b:]
-H?    equ[:100b:]
-L?    equ[:101b:]
+define z80 z80
 
-macro ld? reg_dest?*,reg_src?*
-    local dest, src
-    dest = 0
-    src = 0
-    match[:r:], reg_dest
-        dest = r shl 3
-    else match (=HL?), reg_dest
-        dest = 010b shl 3
-    else
-        err "incorrect argument"
-    end match
-    match[:r:], reg_src
-        src = r
-    else match (=HL?), reg_src
-        src = 010b
-    else
-        err "incorrect argument"
-    end match
-    db 01000000b + dest + src
-end macro
+define @dest @dest
+define @src @src
+
+iterate context, @dest, @src
+
+    namespace context
+
+        calminstruction z80.parse_operand#context operand
+        end calminstruction
+    
+    end namespace
+
+end iterate
+
+calminstruction ld? dest*, src*
+
+    call z80.parse_operand@dest, dest
+    call z80.parse_operand@src, src
+    
+end calminstruction
